@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working Sticky Navbar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: transparent;
+      padding: 1rem 0;
+      text-align: center;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 999;
+    }
+
+    .navbar.scrolled {
+      background-color: #3f8ee7;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .navbar ul li a {
+      color: rgb(12, 12, 12);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: #5df53b;
+      transform: scale(1.1);
+    }
+
+    section {
+      height: 100vh;
+      padding-top: 80px;
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+
+    section:nth-child(even) {
+      background-color: #8ebeeb;
+    }
+
+    section h1 {
+      margin-top: 80px;
+      font-size: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home"><h1>Home Section</h1></section>
+  <section id="about"><h1>About Section</h1></section>
+  <section id="services"><h1>Services Section</h1></section>
+  <section id="contact"><h1>Contact Section</h1></section>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
